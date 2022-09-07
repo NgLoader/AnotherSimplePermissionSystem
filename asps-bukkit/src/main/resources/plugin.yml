@@ -1,0 +1,8 @@
+name: AnotherSimplePermissionSystem
+version: ${revision}
+api-version: 1.19
+
+main: de.ngloader.asps.bukkit.ASPS
+
+commands:
+  asps:

@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.ngloader</groupId>
+	<artifactId>another-simple-permission-system</artifactId>
+
+	<version>${revision}</version>
+	<packaging>pom</packaging>
+
+	<inceptionYear>2022</inceptionYear>
+
+	<modules>
+		<module>asps-core</module>
+		<module>asps-api</module>
+		<module>asps-bukkit</module>
+	</modules>
+
+	<properties>
+		<revision>0.0.1</revision>
+
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+		<java.version>17</java.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>bungeecord-repo</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</repository>
+		<repository>
+			<id>spigot-repo</id>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+		</repository>
+	</repositories>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.spigotmc</groupId>
+				<artifactId>spigot-api</artifactId>
+				<version>1.19.2-R0.1-SNAPSHOT</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.spigotmc</groupId>
+				<artifactId>spigot</artifactId>
+				<version>1.19.2-R0.1-SNAPSHOT</version>
+				<classifier>remapped-mojang</classifier>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>net.md-5</groupId>
+				<artifactId>bungeecord-api</artifactId>
+				<version>1.19-R0.1-SNAPSHOT</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>io.vertx</groupId>
+				<artifactId>vertx-mysql-client</artifactId>
+				<version>4.3.3</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate.reactive</groupId>
+				<artifactId>hibernate-reactive-core</artifactId>
+				<version>1.0.0.Final</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>flatten-maven-plugin</artifactId>
+				<version>1.2.7</version>
+				<executions>
+					<execution>
+						<id>flatten</id>
+						<phase>package</phase>
+						<goals>
+							<goal>flatten</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>flatten.clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<updatePomFile>true</updatePomFile>
+					<flattenMode>clean</flattenMode>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
