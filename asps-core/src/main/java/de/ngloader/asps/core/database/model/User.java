@@ -25,6 +25,9 @@ public class User {
 	@Column(name = "uuid", columnDefinition = "BINARY(16)", nullable = false)
 	public UUID uuid;
 
+	@Column(name = "locale", columnDefinition = "VARCHAR(5)")
+	public String locale;
+
 	@OneToMany(mappedBy = "userId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	public Set<GroupUser> groups;
 
@@ -34,11 +37,9 @@ public class User {
 	public User() {
 	}
 
-	public User(int userId, UUID uuid, Set<GroupUser> groups, Set<UserPermission> permissions) {
-		this.userId = userId;
+	public User(UUID uuid, String locale) {
 		this.uuid = uuid;
-		this.groups = groups;
-		this.permissions = permissions;
+		this.locale = locale;
 	}
 
 	@Override

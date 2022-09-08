@@ -35,6 +35,10 @@ public class GroupUser implements Expireable {
 		this.expire = expire;
 	}
 
+	public GroupUser(Group group, User user, OffsetDateTime expire) {
+		this(group.groupId, user.userId, expire);
+	}
+
 	@Override
 	public OffsetDateTime getExpire() {
 		return this.expire;

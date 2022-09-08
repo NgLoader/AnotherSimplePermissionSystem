@@ -26,14 +26,16 @@ public class Group {
 	@Column(name = "prefix", length = 64, nullable =  true)
 	public String prefix;
 
+	@Column(name = "standard", columnDefinition = "TINYINT(1)")
+	public boolean standard;
+
 	@OneToMany(mappedBy = "groupId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	public Set<GroupUser> users;
 
 	public Group() {
 	}
 
-	public Group(int groupId, String name, String prefix) {
-		this.groupId = groupId;
+	public Group(String name, String prefix) {
 		this.name = name;
 		this.prefix = prefix;
 	}

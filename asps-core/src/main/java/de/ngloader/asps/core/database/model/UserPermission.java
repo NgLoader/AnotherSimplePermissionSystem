@@ -39,6 +39,10 @@ public class UserPermission implements Expireable {
 		this.expire = expire;
 	}
 
+	public UserPermission(User user, String permission, boolean state, OffsetDateTime expire) {
+		this(user.userId, permission, state, expire);
+	}
+
 	@Override
 	public OffsetDateTime getExpire() {
 		return this.expire;

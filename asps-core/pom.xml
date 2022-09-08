@@ -15,6 +15,10 @@
 			<version>${revision}</version>
 		</dependency>
 		<dependency>
+			<groupId>com.mojang</groupId>
+			<artifactId>brigadier</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-mysql-client</artifactId>
 			<scope>compile</scope>

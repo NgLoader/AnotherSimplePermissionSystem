@@ -34,6 +34,11 @@
 			<id>spigot-repo</id>
 			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
 		</repository>
+		<repository>
+			<id>minecraft-libraries</id>
+			<name>Minecraft Libraries</name>
+			<url>https://libraries.minecraft.net</url>
+		</repository>
 	</repositories>
 
 	<dependencyManagement>
@@ -55,6 +60,12 @@
 				<groupId>net.md-5</groupId>
 				<artifactId>bungeecord-api</artifactId>
 				<version>1.19-R0.1-SNAPSHOT</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.mojang</groupId>
+				<artifactId>brigadier</artifactId>
+				<version>1.0.18</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>

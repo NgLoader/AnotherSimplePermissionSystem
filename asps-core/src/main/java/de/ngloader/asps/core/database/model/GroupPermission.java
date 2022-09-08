@@ -39,6 +39,10 @@ public class GroupPermission implements Expireable {
 		this.expire = expire;
 	}
 
+	public GroupPermission(Group group, String permission, boolean state, OffsetDateTime expire) {
+		this(group.groupId, permission, state, expire);
+	}
+
 	@Override
 	public OffsetDateTime getExpire() {
 		return this.expire;

@@ -31,8 +31,9 @@ public class SqlService implements AutoCloseable {
 				.setProperty(Settings.PASS, config.password)
 				.setProperty(Settings.SHOW_SQL, String.valueOf(Boolean.valueOf(config.debug)))
 				.setProperty(Settings.FORMAT_SQL, "true")
-				.setProperty(Settings.HBM2DDL_AUTO, "create")
+				.setProperty(Settings.HBM2DDL_AUTO, "update")
 				.setProperty(Settings.STATEMENT_BATCH_SIZE, "128")
+				.setProperty(Settings.SQL_CLIENT_POOL, "de.ngloader.asps.core.sql.SqlClientPool")
 				.setProperty(Settings.POOL_SIZE, "16")
 				.setProperty(Settings.POOL_IDLE_TIMEOUT, "540000");
 	}
