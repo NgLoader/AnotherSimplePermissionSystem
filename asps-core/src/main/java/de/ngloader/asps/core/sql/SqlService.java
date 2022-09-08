@@ -27,16 +27,21 @@ public class SqlService implements AutoCloseable {
 	public SqlService(SqlConfig config) {
 		this.configuration = new Configuration()
 				.setProperty(Settings.URL, String.format("jdbc:mariadb://%s/%s", config.host, config.database))
-				.setProperty(Settings.USER, config.username).setProperty(Settings.PASS, config.password)
-				.setProperty(Settings.FORMAT_SQL, "true").setProperty(Settings.HBM2DDL_AUTO, "none")
-				.setProperty(Settings.STATEMENT_BATCH_SIZE, "128").setProperty(Settings.POOL_SIZE, "16")
+				.setProperty(Settings.USER, config.username)
+				.setProperty(Settings.PASS, config.password)
+				.setProperty(Settings.SHOW_SQL, String.valueOf(Boolean.valueOf(config.debug)))
+				.setProperty(Settings.FORMAT_SQL, "true")
+				.setProperty(Settings.HBM2DDL_AUTO, "create")
+				.setProperty(Settings.STATEMENT_BATCH_SIZE, "128")
+				.setProperty(Settings.POOL_SIZE, "16")
 				.setProperty(Settings.POOL_IDLE_TIMEOUT, "540000");
 	}
 
 	public void initialize() {
 		if (this.state.compareAndSet(State.CONFIGURATION, State.OPEN)) {
 			StandardServiceRegistry registry = new ReactiveServiceRegistryBuilder()
-					.applySettings(this.configuration.getProperties()).build();
+					.applySettings(this.configuration.getProperties())
+					.build();
 
 			try {
 				this.sessionFactory = this.configuration.buildSessionFactory(registry)

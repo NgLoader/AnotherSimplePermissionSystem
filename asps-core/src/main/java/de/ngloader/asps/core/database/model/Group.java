@@ -27,8 +27,19 @@ public class Group {
 	public String prefix;
 
 	@OneToMany(mappedBy = "groupId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	public Set<Group> inherit;
+	public Set<GroupUser> users;
 
-	@OneToMany(mappedBy = "groupId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	public Set<User> users;
+	public Group() {
+	}
+
+	public Group(int groupId, String name, String prefix) {
+		this.groupId = groupId;
+		this.name = name;
+		this.prefix = prefix;
+	}
+
+	@Override
+	public String toString() {
+		return "Group [groupId=" + groupId + ", name=" + name + ", prefix=" + prefix + "]";
+	}
 }
