@@ -1,0 +1,6 @@
+{
+	"locale": "en_US",
+	"messages": {
+		"permission.missing": "§cPermission missing§8."
+	}
+}

@@ -1,5 +1,6 @@
 package de.ngloader.asps.core;
 
+import java.util.Locale;
 import java.util.UUID;
 
 import de.ngloader.asps.core.database.model.User;
@@ -24,7 +25,7 @@ public class ASPSTest extends ASPS {
 		this.enable();
 
 		UUID uuid = UUID.randomUUID();
-		User user = new User(uuid, "de_DE");
+		User user = new User(uuid, Locale.GERMANY);
 		this.getUserHandler().createUser(user).whenComplete((result, error) -> {
 			System.out.println("FINISHED 1" + result + error);
 			this.getUserHandler().createUserPermission(new UserPermission(user.userId, "asps.*", true, null)).whenComplete((result2, error2) -> {

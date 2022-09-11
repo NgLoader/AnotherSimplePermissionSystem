@@ -1,9 +1,38 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>de.ngloader</groupId>
-    <artifactId>another-simple-permission-system</artifactId>
-    <version>${revision}</version>
-  </parent>
-  <artifactId>asps-bukkit</artifactId>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.ngloader</groupId>
+		<artifactId>another-simple-permission-system</artifactId>
+		<version>${revision}</version>
+	</parent>
+
+	<artifactId>asps-bukkit</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>de.ngloader</groupId>
+			<artifactId>asps-api-bukkit</artifactId>
+			<version>${revision}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>de.ngloader</groupId>
+			<artifactId>asps-core</artifactId>
+			<version>${revision}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.spigotmc</groupId>
+			<artifactId>spigot-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.spigotmc</groupId>
+			<artifactId>spigot</artifactId>
+			<classifier>remapped-mojang</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.comphenix.protocol</groupId>
+			<artifactId>ProtocolLib</artifactId>
+		</dependency>
+	</dependencies>
 </project>

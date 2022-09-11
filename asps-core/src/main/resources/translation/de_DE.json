@@ -1,0 +1,6 @@
+{
+	"locale": "de_DE",
+	"messages": {
+		"permission.missing": "§cKeine Berechtigungen§8."
+	}
+}
